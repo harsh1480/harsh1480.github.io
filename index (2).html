@@ -1,0 +1,329 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="http://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css">
+    <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+    <title>Form Validation using JavaScript</title>
+</head>
+<body>
+        
+    <div class="container">
+        <div class="header">
+            <h2>Registration Form</h2>
+        </div>
+        <form action="passwrd.html" class="form">
+            <div class="form-group">
+                <label for="">UserName : </label>
+                <input type="text" placeholder="username" id = "username" autocomplete="off">
+                <i class="ion-ios-checkmark"></i>
+                <i class="ion-android-alert"></i>
+                <span></span>
+            </div>
+            <div class="form-group">
+                <label for="">Email : </label>
+                <input type="text" placeholder="email" id = "email" autocomplete="off">
+                <i class="ion-ios-checkmark"></i>
+                <i class="ion-android-alert"></i>
+                <span></span>
+            </div>
+            <div class="form-group">
+                <label for="">Phone Number : </label>
+                <input type="text" placeholder="phonenumber" id = "phonenumber" autocomplete="off">
+                <i class="ion-ios-checkmark"></i>
+                <i class="ion-android-alert"></i>
+                <span></span>
+            </div>
+            <div class="form-group">
+                <label for="">Password : </label>
+                <input type="password" placeholder="password" id = "password" autocomplete="off">
+                <i class="ion-ios-checkmark"></i>
+                <i class="ion-android-alert"></i>
+                <span></span>
+            </div>
+            <div class="form-group">
+                <label for="">Confirm Password : </label>
+                <input type="password" placeholder="confirm password" id = "confirmpassword" autocomplete="off">
+                <i class="ion-ios-checkmark"></i>
+                <i class="ion-android-alert"></i>
+                <span></span>
+            </div>
+         >
+                
+            
+            <button id = 'submit' type="submit">Submit</button>
+          
+             
+            
+        </form>
+    </div>
+    !---csss--------->
+    <style>
+        *{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    font-family: 'Times New Roman', Times, serif;
+}
+
+body{
+    background:url(data:image/jpeg;base64,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);
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.container{
+    background-color: black;
+    box-shadow: rgb(0,0,0) 0px 5px 15px;
+    width: 400px;
+}
+
+.header{
+    color: #fff;
+    text-align: center;
+    background-color:darkblue;
+    padding: 20px 40px;
+    border-bottom: 2px solid #494848;
+}
+
+.form{
+    padding: 30px 40px;
+}
+
+.form-group{
+    margin-bottom: 10px;
+    padding-bottom: 20px;
+    position: relative;
+}
+
+.form-group label{
+    display: block;
+    margin-bottom: 5px;
+}
+
+.form-group input{
+    border: 2px solid #f0f0f0;
+    display: block;
+    border-radius: 20px;
+    font-size: .8rem;
+    width: 100%;
+    padding: 10px;
+}
+
+
+.form-group i{
+    position: absolute;
+    right: 10px;
+    top: 35px;
+    visibility: hidden;
+}
+
+.form-group span{
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    font-weight: bolder;
+    font-size: 1rem;
+    font-style: italic;
+    visibility: hidden;
+}
+
+
+.form-group.success input{
+    border-color: #2ecc71;
+}
+
+.form-group.error input{
+    border-color: #e74c3c;
+}
+
+.form-group.error span{
+    color: #e74c3c;
+    visibility: visible;
+}
+
+.form-group.success i.ion-ios-checkmark{
+    visibility: visible;
+    color: #2ecc71;
+}
+
+.form-group.error i.ion-android-alert{
+    visibility: visible;
+    color: #e74c3c;
+}
+
+.form #submit{
+    background-color:darkblue;
+    border: none;
+    outline: none; 
+    color: #fff;
+    width: 100%;
+    padding: 10px;
+    font-size: 1rem;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: all .5s;
+}
+
+.form #submit:hover{
+    background-color: #6441a5;
+}
+
+@media only screen and (max-width : 500px){
+    .form{
+        width: 100%;
+    }
+    .form-group span{
+        font-size: xx-small;
+    }
+}
+
+    </style>
+    
+    <script src="app.js">
+    class FormValidation{
+        formValues = {
+            username : "",
+            email : "",
+            phonenumber : "",
+            password : "",
+            confirmpassword : ""
+        }
+        errorValues = {
+            usernameErr : "",
+            emailErr : "",
+            phonenumberErr : "",
+            passwordErr : "",
+            confirmpasswordErr : ""
+        }
+        showErrorMsg(index,msg){
+            const form_group = document.getElementsByClassName('form-group')[index]
+            form_group.classList.add('error')
+            form_group.getElementsByTagName('span')[0].textContent = msg   
+        }
+        showSuccessMsg(index){
+            const form_group = document.getElementsByClassName('form-group')[index]
+            form_group.classList.remove('error')
+            form_group.classList.add('success')
+        }
+        getInputs(){
+            this.formValues.username = document.getElementById('username').value.trim()
+            this.formValues.email = document.getElementById('email').value.trim()
+            this.formValues.phonenumber = document.getElementById('phonenumber').value.trim()
+            this.formValues.password = document.getElementById('password').value.trim()
+            this.formValues.confirmpassword = document.getElementById('confirmpassword').value.trim()
+        }
+        validateUsername(){
+            if(this.formValues.username === ""){
+                this.errorValues.usernameErr = "* Please Enter Your Name"
+                this.showErrorMsg(0,this.errorValues.usernameErr)
+            } else if(this.formValues.username.length <= 4 ){
+                this.errorValues.usernameErr = "* Username must be atleast 5 Characters"
+                this.showErrorMsg(0,this.errorValues.usernameErr)
+            } else if(this.formValues.username.length > 14){
+                this.errorValues.usernameErr = "* Username should not exceeds 14 Characters"
+                this.showErrorMsg(0,this.errorValues.usernameErr)
+            } else {
+                this.errorValues.usernameErr = ""
+                this.showSuccessMsg(0)
+            }
+        }
+        validateEmail(){
+            //abc@gmail.co.in
+            const regExp = /^([a-zA-Z0-9-_\.]+)@([a-zA-Z0-9]+)\.([a-zA-Z]{2,10})(\.[a-zA-Z]{2,8})?$/
+            if(this.formValues.email === ""){
+                this.errorValues.emailErr = "* Please Enter Valid Email"
+                this.showErrorMsg(1,this.errorValues.emailErr)
+            } else if(!(regExp.test(this.formValues.email))){
+                this.errorValues.emailErr = "* Invalid Email"
+                this.showErrorMsg(1,this.errorValues.emailErr)
+            } else {
+                this.errorValues.emailErr = ""
+                this.showSuccessMsg(1)
+            }
+        }
+        validatePhonenumber(){
+           const phoneno = /^\d{10}$/
+           if(this.formValues.phonenumber === ""){
+               this.errorValues.phonenumberErr = "* Please Enter your Phone Number"
+               this.showErrorMsg(2,this.errorValues.phonenumberErr)
+           } else if(phoneno.test(this.formValues.phonenumber)){
+               this.errorValues.phonenumberErr = ""
+               this.showSuccessMsg(2)
+           } else {
+               this.errorValues.phonenumberErr = "* Invalid Phone Number"
+               this.showErrorMsg(2,this.errorValues.phonenumberErr)
+           }
+        }
+        validatePassword(){
+            if(this.formValues.password === ""){
+                this.errorValues.passwordErr = "* Please Provide a Password"
+                this.showErrorMsg(3,this.errorValues.passwordErr)
+            } else if(this.formValues.password.length <= 4){
+                this.errorValues.passwordErr = "* Password must be atleast 5 Characters"
+                this.showErrorMsg(3,this.errorValues.passwordErr)
+            } else if(this.formValues.password.length > 10){
+                this.errorValues.passwordErr = "* Password should not exceeds 10 Characters"
+                this.showErrorMsg(3,this.errorValues.passwordErr)
+            } else {
+                this.errorValues.passwordErr = ""
+                this.showSuccessMsg(3)
+            }
+        }
+        validateConfirmpassword(){
+            if(this.formValues.confirmpassword === ""){
+                this.errorValues.confirmpasswordErr = "* Invalid Confirm Password"
+                this.showErrorMsg(4,this.errorValues.confirmpasswordErr)
+            } else if(this.formValues.confirmpassword === this.formValues.password && this.errorValues.passwordErr === ""){
+                this.errorValues.confirmpasswordErr = ""
+                this.showSuccessMsg(4)
+            } else if(this.errorValues.passwordErr){
+                this.errorValues.confirmpasswordErr = "* An error occurred in Password Field"
+                this.showErrorMsg(4,this.errorValues.confirmpasswordErr)
+            } else {
+                this.errorValues.confirmpasswordErr = "* Password Must Match"
+                this.showErrorMsg(4,this.errorValues.confirmpasswordErr)
+            }
+        }
+        alertMessage(){
+            const {usernameErr , emailErr , phonenumberErr , passwordErr , confirmpasswordErr}= this.errorValues
+            if(usernameErr === "" && emailErr === "" && phonenumberErr === "" && passwordErr === "" && confirmpasswordErr === ""){
+                swal("Registration Successful","ThankYou , "+this.formValues.username,"success").then(() => {
+                    console.log(this.formValues)
+                    this.removeInputs()
+                })
+            } else {
+                swal("Give Valid Inputs","Click ok to Continue" ,"error")
+            }
+        }
+    
+        removeInputs(){
+            const form_groups = document.getElementsByClassName('form-group')
+            Array.from(form_groups).forEach(element => {
+                element.getElementsByTagName('input')[0].value = ""
+                element.getElementsByTagName('span')[0].textContent = ""
+                element.classList.remove('success')
+            })
+        }
+    } 
+    
+    const ValidateUserInputs = new FormValidation()
+    
+    document.getElementsByClassName('form')[0].addEventListener('submit' , event => {
+        event.preventDefault()
+        ValidateUserInputs.getInputs()
+        ValidateUserInputs.validateUsername()
+        ValidateUserInputs.validateEmail()
+        ValidateUserInputs.validatePhonenumber()
+        ValidateUserInputs.validatePassword()
+        ValidateUserInputs.validateConfirmpassword()
+        ValidateUserInputs.alertMessage()
+    })
+    </script>
+</body>
+</html>
